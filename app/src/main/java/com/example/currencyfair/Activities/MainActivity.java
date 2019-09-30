@@ -143,6 +143,7 @@ public class MainActivity extends AppCompatActivity implements OnNewPhotosListen
                 @Override
                 public void run() {
                     Toast.makeText(getApplicationContext(), getString(R.string.no_photos_found), Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
                 }
             });
         }
