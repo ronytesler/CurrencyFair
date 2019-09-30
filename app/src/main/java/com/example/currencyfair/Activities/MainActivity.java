@@ -138,9 +138,13 @@ public class MainActivity extends AppCompatActivity implements OnNewPhotosListen
 
     @Override
     public void onNoPhotosFound(int page) {
-        if (page == 1)
-        {
-            Toast.makeText(getApplicationContext(), getString(R.string.no_photos_found), Toast.LENGTH_SHORT).show();
+        if (page == 1) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(getApplicationContext(), getString(R.string.no_photos_found), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
 }
