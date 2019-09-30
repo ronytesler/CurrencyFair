@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.currencyfair.Adapters.CustomAdapter;
 import com.example.currencyfair.Models.Photo;
@@ -132,6 +133,14 @@ public class MainActivity extends AppCompatActivity implements OnNewPhotosListen
                 progressBar.setVisibility(View.GONE);
             }
         });
-        // not handling this for now
+        Toast.makeText(getApplicationContext(), getString(R.string.error_loading_large_photo), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNoPhotosFound(int page) {
+        if (page == 1)
+        {
+            Toast.makeText(getApplicationContext(), getString(R.string.no_photos_found), Toast.LENGTH_SHORT).show();
+        }
     }
 }

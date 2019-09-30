@@ -79,6 +79,11 @@ public class FlickrRepository {
             newPhotosListener.onNewPhotos(images, page, pages, perpage);
     }
 
+    private void notifyNewPhotosListenerNoPhotosFound(int page) {
+        if (newPhotosListener != null)
+            newPhotosListener.onNoPhotosFound(page);
+    }
+
     private void notifyNewPhotosListenerOnError(String error) {
         if (newPhotosListener != null)
             newPhotosListener.onError(error);
@@ -115,7 +120,7 @@ public class FlickrRepository {
     }
 
 
-    private void getPhotosAsync(String tags, int page) {
+    private void getPhotosAsync(String tags, final int page) {
         this.tags = tags;
         currentPage = page;
         String searchUrl = buildSearchUrl(tags, currentPage);
@@ -139,7 +144,10 @@ public class FlickrRepository {
                 photoList.initPhotos();
 
                 Photos photos = photoList.getPhotos();
-                notifyNewPhotosListener(photos.getAllPhotos(), photos.getPage(), photos.getPages(), photos.getPerpage());
+                if (photos.getAllPhotos() == null || photos.getAllPhotos().size() == 0)
+                    notifyNewPhotosListenerNoPhotosFound(page);
+                else
+                    notifyNewPhotosListener(photos.getAllPhotos(), photos.getPage(), photos.getPages(), photos.getPerpage());
             }
         });
     }
