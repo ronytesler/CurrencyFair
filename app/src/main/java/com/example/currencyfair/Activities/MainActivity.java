@@ -131,9 +131,9 @@ public class MainActivity extends AppCompatActivity implements OnNewPhotosListen
             @Override
             public void run() {
                 progressBar.setVisibility(View.GONE);
+                Toast.makeText(getApplicationContext(), getString(R.string.error_loading_large_photo), Toast.LENGTH_SHORT).show();
             }
         });
-        Toast.makeText(getApplicationContext(), getString(R.string.error_loading_large_photo), Toast.LENGTH_SHORT).show();
     }
 
     @Override
