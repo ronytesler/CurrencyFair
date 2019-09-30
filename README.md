@@ -1,4 +1,5 @@
 Hi,
+
 Included:
 - Infinite scrolling
 - Offline mode
