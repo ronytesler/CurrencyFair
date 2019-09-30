@@ -40,7 +40,7 @@ public class LargeView extends AppCompatActivity {
 
             @Override
             public void onError() {
-                Toast.makeText(getApplicationContext(), getString(R.string.no_large_view_for_photo), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.error_loading_large_photo), Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.GONE);
                 imageView.setVisibility(View.GONE);
             }
