@@ -26,7 +26,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements OnNewPhotosListener {
 
-    private static final String LIST_STATE = "listState";
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private GridLayoutManager layoutManager;

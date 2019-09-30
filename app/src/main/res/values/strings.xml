@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">CurrencyFair</string>
     <string name="no_large_view_for_photo">No large view for this photo</string>
+    <string name="error_loading_large_photo">Error loading large photo</string>
     <string name="title_activity_t">t</string>
     <string name="search_title">search</string>
     <string name="search_hint">search</string>
