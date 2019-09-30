@@ -135,12 +135,14 @@ public class MainActivity extends AppCompatActivity implements OnNewPhotosListen
                     Toast.makeText(getApplicationContext(), getString(R.string.error_search), Toast.LENGTH_SHORT).show();
                 else
                     Toast.makeText(getApplicationContext(), getString(R.string.error_loading_more_photos), Toast.LENGTH_SHORT).show();
+                isLoading = false;
             }
         });
     }
 
     @Override
     public void onNoPhotosFound(int page) {
+        isLoading = false;
         if (page == 1) {
             runOnUiThread(new Runnable() {
                 @Override
