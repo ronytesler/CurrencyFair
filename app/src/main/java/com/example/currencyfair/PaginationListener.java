@@ -4,6 +4,8 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.currencyfair.Utils.Utils;
+
 public abstract class PaginationListener extends RecyclerView.OnScrollListener {
 
     public static final int PAGE_START = 1;
@@ -35,7 +37,8 @@ public abstract class PaginationListener extends RecyclerView.OnScrollListener {
         if (!isLoading() && !isLastPage()) {
             if ((visibleItemCount + firstVisibleItemPosition) >= totalItemCount
                     && firstVisibleItemPosition >= 0
-                    && totalItemCount >= pageSize) {
+                    && totalItemCount >= pageSize
+            && Utils.hasNetwork(App.getAppContext())) {
                 loadMoreItems();
             }
         }
