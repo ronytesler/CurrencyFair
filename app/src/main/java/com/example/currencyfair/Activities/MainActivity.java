@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements OnNewPhotosListen
                 if (customAdapter.getItemCount() == 0)
                     Toast.makeText(getApplicationContext(), getString(R.string.error_search), Toast.LENGTH_SHORT).show();
                 else
-                    Toast.makeText(getApplicationContext(), getString(R.string.error_search), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.error_loading_more_photos), Toast.LENGTH_SHORT).show();
             }
         });
     }
